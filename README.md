@@ -1,34 +1,65 @@
 # Concurrent Traffic Simulation
 
-<img src="data/splash.png"/>
+A multi-threaded traffic simulation built with C++ demonstrating concurrent programming concepts. Vehicles navigate through a city with traffic lights using thread-safe communication.
 
-This project adds traffic lights functionality to the udacity [starter code](https://github.com/udacity/CppND-Program-a-Concurrent-Traffic-Simulation) to satisfy this [rubric](https://review.udacity.com/#!/rubrics/2640/view). The starter code already impements a traffic simulation in which vehicles are moving along streets and are crossing intersections. 
+<img src="data/traffic_simulation.gif"/>
 
-This update deals with increasing traffic in the city, where traffic lights are needed for road safety. Each intersection is therefore equipped with a traffic light. Also, this update builds a suitable and thread-safe communication protocol between vehicles and intersections to complete the simulation. In order to achieve that, concepts of concurrent programming (such as mutexes, locks and message queues) are used to implement the traffic lights and their integration into the code base.
+## Features
 
-Check this [video](https://www.youtube.com/watch?v=3Cddvt0tG_Y) for a simulation run.
+- **Traffic Lights** - Each intersection has red/green cycling lights
+- **Thread-Safe Messaging** - Vehicles and lights communicate via message queues
+- **Concurrent Execution** - Each vehicle and light runs in its own thread
+- **Mutex Protection** - Shared resources protected from race conditions
+- **Condition Variables** - Vehicles wait for green lights efficiently
+- **Async Operations** - Light phase changes use std::async
 
-## Project schematic
+## Architecture
 
-<img src="data/schematic.png"/>
+<img src="data/schematic.png" width="600"/>
 
-## Dependencies for Running Locally
-* cmake >= 2.8
-  * All OSes: [click here for installation instructions](https://cmake.org/install/)
-* make >= 4.1 (Linux, Mac), 3.81 (Windows)
-  * Linux: make is installed by default on most Linux distros
-  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
-* OpenCV >= 4.1
-  * The OpenCV 4.1.0 source code can be found [here](https://github.com/opencv/opencv/tree/4.1.0)
-* gcc/g++ >= 5.4
-  * Linux: gcc / g++ is installed by default on most Linux distros
-  * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
-  * Windows: recommend using [MinGW](http://www.mingw.org/)
+## Demo
 
-## Basic Build Instructions
+[Watch the simulation in action →](https://www.youtube.com/watch?v=3Cddvt0tG_Y)
 
-1. Clone this repo.
-2. Make a build directory in the top level directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./traffic_simulation`.
+## Project Structure
+
+```
+├── src/
+│   ├── TrafficSimulator-Final.cpp  # Main entry, city setup
+│   ├── TrafficLight.cpp/h          # Light phases, message queue
+│   ├── Intersection.cpp/h          # Vehicle queuing, traffic control
+│   ├── Vehicle.cpp/h               # Movement, path planning
+│   ├── Street.cpp/h                # Road connections
+│   ├── TrafficObject.cpp/h         # Base class with threading
+│   └── Graphics.cpp/h              # OpenCV visualization
+├── data/
+│   ├── paris.jpg                   # City map background
+│   └── nyc.jpg                     # Alternate map
+└── CMakeLists.txt
+```
+
+## Dependencies
+
+- cmake >= 2.8
+- make >= 4.1
+- gcc/g++ >= 5.4
+- OpenCV >= 4.1
+
+### Install OpenCV (Linux)
+```bash
+sudo apt-get install libopencv-dev
+```
+
+## Building
+
+```bash
+git clone https://github.com/Mohamedhendawy312/Concurrent_Traffic_Simulation.git
+cd Concurrent_Traffic_Simulation
+mkdir build && cd build
+cmake .. && make
+./traffic_simulation
+```
+
+## Author
+
+Mohamed Hendawy
