@@ -1,5 +1,9 @@
 # Concurrent Traffic Simulation
 
+![C++](https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B)
+![CMake](https://img.shields.io/badge/CMake-2.8+-green.svg?style=flat&logo=cmake)
+![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey.svg?style=flat)
+
 A multi-threaded traffic simulation built with C++ demonstrating concurrent programming concepts. Vehicles navigate through a city with traffic lights using thread-safe communication.
 
 <img src="data/traffic_simulation.gif"/>
